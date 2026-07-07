@@ -82,6 +82,8 @@ Existing methods treat hallucination as binary. We introduce **uncertainty finge
 
 ## Live Demo
 
+**Try it live:** [https://42c1-46-193-64-220.ngrok-free.app](https://42c1-46-193-64-220.ngrok-free.app)
+
 The interactive Gradio app lets you type any question and see the full uncertainty analysis in real-time:
 
 - AI answer with confidence assessment
