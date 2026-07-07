@@ -147,4 +147,4 @@ python app.py                 # Launch demo at localhost:7860
 
 **Shafiya Kausar** — MSc AI & Data Science, aivancity Paris
 
-*Presented at PyCon ES 2026, Barcelona*
+*To be oresented at PyCon ES 2026, Barcelona*
