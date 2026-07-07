@@ -97,25 +97,7 @@ python app.py  # Opens at http://localhost:7860
 
 ## Architecture
 
-User Question
-                     |
-                [Base LLM]  ──── Greedy Answer
-                     |
-          [Sample N responses]
-                /    |    \
-               /     |     \
-[Self-Consistency] [Semantic   [Logit
- Score]            Entropy]    Calibration]
-               \     |     /
-                \    |    /
-         [Uncertainty Fingerprint]
-                     |
-          ┌──────────┼──────────┐
-          │          │          │
-     Confident   Knowledge   Shallow
-    Fabrication    Gap       Mimicry
-          │          │          │
-       FLAG       ABSTAIN    VERIFY
+![Architecture](results/architecture.png)
 
 ## Repository Structure
 
