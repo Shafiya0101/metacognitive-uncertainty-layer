@@ -1,5 +1,12 @@
 venv/
-results/*.pkl
+*.pkl
 __pycache__/
 *.pyc
 .cache/
+fix*.py
+fix*.bat
+debug_run.py
+test_load.py
+set_token.py
+create_app.py
+add_medqa.py

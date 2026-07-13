@@ -1,0 +1,14 @@
+torch
+torchvision
+transformers
+accelerate
+bitsandbytes
+datasets
+sentencepiece
+protobuf
+scipy
+scikit-learn
+matplotlib
+tqdm
+gradio
+pyngrok
