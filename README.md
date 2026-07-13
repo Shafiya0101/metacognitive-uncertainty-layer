@@ -2,7 +2,7 @@
 
 **PFE Thesis Project | aivancity PGE5 — AI & Data Science | 2025-2026**
 
-**[Live Demo](https://huggingface.co/spaces/Shafiya1234/metacognitive-uncertainty-layer)** | **[Thesis LaTeX](thesis_v2.tex)** | **[PyCon ES 2026](https://pretalx.com/pycones-2026/)**
+**[Live Demo](https://huggingface.co/spaces/Shafiya1234/metacognitive-uncertainty-layer)** |  **[PyCon ES 2026](https://pretalx.com/pycones-2026/)**
 
 ---
 
