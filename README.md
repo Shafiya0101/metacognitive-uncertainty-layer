@@ -261,8 +261,6 @@ python app.py
 - [x] RAG verification (negative result: simple retrieval insufficient)
 - [x] Attention entropy revisited (all 32 layers)
 - [x] Interactive Gradio demo + Hugging Face deployment
-- [ ] Conference presentation (PyCon ES, November 2026)
-- [ ] Final thesis report
 
 ## Author
 
