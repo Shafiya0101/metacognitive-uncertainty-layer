@@ -6,9 +6,11 @@ bitsandbytes
 datasets
 sentencepiece
 protobuf
+numpy
 scipy
 scikit-learn
 matplotlib
 tqdm
 gradio
 pyngrok
+anthropic
