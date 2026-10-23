@@ -1,0 +1,222 @@
+========================================================================
+Mistral-7B | TriviaQA | n = 200 | accuracy = 0.765
+  [AUROC for detecting wrong answers, 95% bootstrap CI]
+    Avg(-logP)                 0.7694  [0.693, 0.839]
+    Self-Consistency           0.7683  [0.682, 0.845]
+    Semantic Entropy           0.7729  [0.689, 0.851]
+    SelfCheckGPT-NLI           0.7924  [0.703, 0.877]
+    Combined (SC+SE+LP)        0.7949  [0.717, 0.863]
+    Combined (SC+SE+LP+NLI)    0.8134  [0.735, 0.881]
+    paired diff Combined (SC+SE+LP) - SelfCheck-NLI: +0.0013 [-0.0473, +0.0533]   (CI containing 0 = no clear difference)
+    paired diff Combined (SC+SE+LP+NLI) - SelfCheck-NLI: +0.0199 [-0.0205, +0.0650]   (CI containing 0 = no clear difference)
+  [Regions: thresholds = medians, SC>0.200, SE>0.325; no labels used]
+    region                                  n      % errors  error rate [95% CI]
+    Confident (low SC, low SE)             92  46.0%      6  0.065 [0.030, 0.135]
+    Gap-like (high SC, high SE)            87  43.5%     37  0.425 [0.327, 0.530]
+    Shallow (low SC, high SE)              10   5.0%      2  0.200 [0.057, 0.510]
+    Surface-varying (high SC, low SE)      11   5.5%      2  0.182 [0.051, 0.477]
+    Silent errors (wrong inside Confident): 6 of 47 total errors (12.8%), = 3.0% of all questions
+    OLD policy (abstain on Gap-like AND wrong -> uses labels, NOT valid): acc 0.939, coverage 0.815
+    NEW label-free policy (abstain on Gap-like): acc 0.912, coverage 0.565
+  [Interaction SC x SE: likelihood-ratio stat 2.872, p = 0.090  (p>0.05: the 2-D pattern adds nothing beyond SC and SE separately)]
+  [Inside Confident region: n=92, errors=6]
+    LP   AUROC separating right/wrong inside region: 0.667  (few errors -> very noisy)
+    NLI  AUROC separating right/wrong inside region: 0.316  (few errors -> very noisy)
+  [Policy vs thresholds, 500 bootstrap + 50/50 calibration/evaluation splits; thresholds fitted on calibration half]
+    Answer-all accuracy: 0.768
+    Fingerprint policy A: abstain only on Gap-like
+      coverage 0.583 | accuracy 0.900 [0.814, 0.967]
+      vs SC only            same coverage: acc 0.895 | fingerprint - baseline +0.004 [-0.042, +0.053]
+      vs SE only            same coverage: acc 0.905 | fingerprint - baseline -0.005 [-0.046, +0.033]
+      vs LogProb only       same coverage: acc 0.889 | fingerprint - baseline +0.011 [-0.062, +0.084]
+      vs Combined SC+SE+LP  same coverage: acc 0.908 | fingerprint - baseline -0.009 [-0.050, +0.033]
+      vs NLI only           same coverage: acc 0.920 | fingerprint - baseline -0.020 [-0.076, +0.021]
+      vs Combined +NLI      same coverage: acc 0.915 | fingerprint - baseline -0.016 [-0.060, +0.020]
+    Fingerprint policy B: auto-accept only Confident
+      coverage 0.474 | accuracy 0.931 [0.846, 1.000]
+      vs SC only            same coverage: acc 0.927 | fingerprint - baseline +0.004 [-0.022, +0.035]
+      vs SE only            same coverage: acc 0.913 | fingerprint - baseline +0.018 [-0.019, +0.069]
+      vs LogProb only       same coverage: acc 0.909 | fingerprint - baseline +0.022 [-0.047, +0.090]
+      vs Combined SC+SE+LP  same coverage: acc 0.933 | fingerprint - baseline -0.002 [-0.025, +0.019]
+      vs NLI only           same coverage: acc 0.917 | fingerprint - baseline +0.014 [-0.018, +0.062]
+      vs Combined +NLI      same coverage: acc 0.932 | fingerprint - baseline -0.001 [-0.027, +0.019]
+    (interval entirely above 0 = fingerprint policy clearly better than that threshold)
+========================================================================
+Qwen2-7B | TriviaQA | n = 200 | accuracy = 0.610
+  [AUROC for detecting wrong answers, 95% bootstrap CI]
+    Avg(-logP)                 0.8021  [0.739, 0.861]
+    Self-Consistency           0.7998  [0.737, 0.862]
+    Semantic Entropy           0.8021  [0.739, 0.863]
+    SelfCheckGPT-NLI           0.8080  [0.742, 0.873]
+    Combined (SC+SE+LP)        0.8201  [0.757, 0.878]
+    Combined (SC+SE+LP+NLI)    0.8216  [0.760, 0.878]
+    paired diff Combined (SC+SE+LP) - SelfCheck-NLI: +0.0122 [-0.0173, +0.0448]   (CI containing 0 = no clear difference)
+    paired diff Combined (SC+SE+LP+NLI) - SelfCheck-NLI: +0.0136 [-0.0122, +0.0443]   (CI containing 0 = no clear difference)
+  [Regions: thresholds = medians, SC>0.150, SE>0.325; no labels used]
+    region                                  n      % errors  error rate [95% CI]
+    Confident (low SC, low SE)            100  50.0%     17  0.170 [0.109, 0.255]
+    Gap-like (high SC, high SE)            91  45.5%     59  0.648 [0.546, 0.739]
+    Shallow (low SC, high SE)               0   0.0%      0  nan [nan, nan]
+    Surface-varying (high SC, low SE)       9   4.5%      2  0.222 [0.063, 0.547]
+    Silent errors (wrong inside Confident): 17 of 78 total errors (21.8%), = 8.5% of all questions
+    OLD policy (abstain on Gap-like AND wrong -> uses labels, NOT valid): acc 0.865, coverage 0.705
+    NEW label-free policy (abstain on Gap-like): acc 0.826, coverage 0.545
+  [Interaction SC x SE: likelihood-ratio stat 0.212, p = 0.645  (p>0.05: the 2-D pattern adds nothing beyond SC and SE separately)]
+  [Inside Confident region: n=100, errors=17]
+    LP   AUROC separating right/wrong inside region: 0.612  (few errors -> very noisy)
+    NLI  AUROC separating right/wrong inside region: 0.586  (few errors -> very noisy)
+  [Policy vs thresholds, 500 bootstrap + 50/50 calibration/evaluation splits; thresholds fitted on calibration half]
+    Answer-all accuracy: 0.611
+    Fingerprint policy A: abstain only on Gap-like
+      coverage 0.571 | accuracy 0.811 [0.696, 0.911]
+      vs SC only            same coverage: acc 0.803 | fingerprint - baseline +0.007 [-0.034, +0.057]
+      vs SE only            same coverage: acc 0.810 | fingerprint - baseline +0.000 [-0.022, +0.034]
+      vs LogProb only       same coverage: acc 0.789 | fingerprint - baseline +0.021 [-0.049, +0.109]
+      vs Combined SC+SE+LP  same coverage: acc 0.816 | fingerprint - baseline -0.005 [-0.038, +0.022]
+      vs NLI only           same coverage: acc 0.828 | fingerprint - baseline -0.018 [-0.074, +0.029]
+      vs Combined +NLI      same coverage: acc 0.819 | fingerprint - baseline -0.008 [-0.043, +0.020]
+    Fingerprint policy B: auto-accept only Confident
+      coverage 0.488 | accuracy 0.846 [0.729, 0.948]
+      vs SC only            same coverage: acc 0.837 | fingerprint - baseline +0.009 [-0.016, +0.044]
+      vs SE only            same coverage: acc 0.846 | fingerprint - baseline +0.000 [-0.053, +0.047]
+      vs LogProb only       same coverage: acc 0.804 | fingerprint - baseline +0.042 [-0.041, +0.129]
+      vs Combined SC+SE+LP  same coverage: acc 0.848 | fingerprint - baseline -0.002 [-0.023, +0.020]
+      vs NLI only           same coverage: acc 0.854 | fingerprint - baseline -0.008 [-0.078, +0.045]
+      vs Combined +NLI      same coverage: acc 0.852 | fingerprint - baseline -0.006 [-0.040, +0.000]
+    (interval entirely above 0 = fingerprint policy clearly better than that threshold)
+========================================================================
+Qwen2-1.5B | TriviaQA | n = 200 | accuracy = 0.425
+  [AUROC for detecting wrong answers, 95% bootstrap CI]
+    Avg(-logP)                 0.6469  [0.575, 0.723]
+    Self-Consistency           0.7001  [0.621, 0.773]
+    Semantic Entropy           0.7367  [0.663, 0.807]
+    SelfCheckGPT-NLI           0.8016  [0.739, 0.861]
+    Combined (SC+SE+LP)        0.7307  [0.655, 0.800]
+    Combined (SC+SE+LP+NLI)    0.7796  [0.711, 0.843]
+    paired diff Combined (SC+SE+LP) - SelfCheck-NLI: -0.0716 [-0.1245, -0.0221]   (CI containing 0 = no clear difference)
+    paired diff Combined (SC+SE+LP+NLI) - SelfCheck-NLI: -0.0223 [-0.0538, +0.0108]   (CI containing 0 = no clear difference)
+  [Regions: thresholds = medians, SC>0.700, SE>1.748; no labels used]
+    region                                  n      % errors  error rate [95% CI]
+    Confident (low SC, low SE)             91  45.5%     36  0.396 [0.301, 0.498]
+    Gap-like (high SC, high SE)            79  39.5%     59  0.747 [0.641, 0.830]
+    Shallow (low SC, high SE)              10   5.0%      7  0.700 [0.397, 0.892]
+    Surface-varying (high SC, low SE)      20  10.0%     13  0.650 [0.433, 0.819]
+    Silent errors (wrong inside Confident): 36 of 115 total errors (31.3%), = 18.0% of all questions
+    OLD policy (abstain on Gap-like AND wrong -> uses labels, NOT valid): acc 0.603, coverage 0.705
+    NEW label-free policy (abstain on Gap-like): acc 0.537, coverage 0.605
+  [Interaction SC x SE: likelihood-ratio stat 1.508, p = 0.219  (p>0.05: the 2-D pattern adds nothing beyond SC and SE separately)]
+  [Inside Confident region: n=91, errors=36]
+    LP   AUROC separating right/wrong inside region: 0.655  (few errors -> very noisy)
+    NLI  AUROC separating right/wrong inside region: 0.798  (few errors -> very noisy)
+  [Policy vs thresholds, 500 bootstrap + 50/50 calibration/evaluation splits; thresholds fitted on calibration half]
+    Answer-all accuracy: 0.430
+    Fingerprint policy A: abstain only on Gap-like
+      coverage 0.666 | accuracy 0.523 [0.376, 0.676]
+      vs SC only            same coverage: acc 0.516 | fingerprint - baseline +0.008 [-0.030, +0.064]
+      vs SE only            same coverage: acc 0.523 | fingerprint - baseline +0.001 [-0.040, +0.051]
+      vs LogProb only       same coverage: acc 0.485 | fingerprint - baseline +0.039 [-0.051, +0.158]
+      vs Combined SC+SE+LP  same coverage: acc 0.526 | fingerprint - baseline -0.003 [-0.052, +0.039]
+      vs NLI only           same coverage: acc 0.568 | fingerprint - baseline -0.045 [-0.123, +0.016]
+      vs Combined +NLI      same coverage: acc 0.560 | fingerprint - baseline -0.037 [-0.098, +0.017]
+    Fingerprint policy B: auto-accept only Confident
+      coverage 0.482 | accuracy 0.608 [0.434, 0.765]
+      vs SC only            same coverage: acc 0.588 | fingerprint - baseline +0.021 [-0.039, +0.088]
+      vs SE only            same coverage: acc 0.619 | fingerprint - baseline -0.010 [-0.072, +0.026]
+      vs LogProb only       same coverage: acc 0.521 | fingerprint - baseline +0.087 [-0.036, +0.222]
+      vs Combined SC+SE+LP  same coverage: acc 0.626 | fingerprint - baseline -0.017 [-0.092, +0.044]
+      vs NLI only           same coverage: acc 0.659 | fingerprint - baseline -0.051 [-0.159, +0.047]
+      vs Combined +NLI      same coverage: acc 0.652 | fingerprint - baseline -0.043 [-0.125, +0.025]
+    (interval entirely above 0 = fingerprint policy clearly better than that threshold)
+========================================================================
+Mistral-7B | NaturalQA | n = 200 | accuracy = 0.330
+  [AUROC for detecting wrong answers, 95% bootstrap CI]
+    Avg(-logP)                 0.6939  [0.617, 0.773]
+    Self-Consistency           0.6293  [0.546, 0.715]
+    Semantic Entropy           0.6562  [0.572, 0.740]
+    SelfCheckGPT-NLI           0.6660  [0.586, 0.747]
+    Combined (SC+SE+LP)        0.6660  [0.582, 0.746]
+    Combined (SC+SE+LP+NLI)    0.6751  [0.597, 0.754]
+    paired diff Combined (SC+SE+LP) - SelfCheck-NLI: +0.0003 [-0.0582, +0.0644]   (CI containing 0 = no clear difference)
+    paired diff Combined (SC+SE+LP+NLI) - SelfCheck-NLI: +0.0096 [-0.0324, +0.0539]   (CI containing 0 = no clear difference)
+  [Regions: thresholds = medians, SC>0.800, SE>1.609; no labels used]
+    region                                  n      % errors  error rate [95% CI]
+    Confident (low SC, low SE)             93  46.5%     53  0.570 [0.468, 0.666]
+    Gap-like (high SC, high SE)            64  32.0%     48  0.750 [0.632, 0.840]
+    Shallow (low SC, high SE)              33  16.5%     25  0.758 [0.590, 0.872]
+    Surface-varying (high SC, low SE)      10   5.0%      8  0.800 [0.490, 0.943]
+    Silent errors (wrong inside Confident): 53 of 134 total errors (39.6%), = 26.5% of all questions
+    OLD policy (abstain on Gap-like AND wrong -> uses labels, NOT valid): acc 0.434, coverage 0.760
+    NEW label-free policy (abstain on Gap-like): acc 0.368, coverage 0.680
+  [Interaction SC x SE: likelihood-ratio stat 2.065, p = 0.151  (p>0.05: the 2-D pattern adds nothing beyond SC and SE separately)]
+  [Inside Confident region: n=93, errors=53]
+    LP   AUROC separating right/wrong inside region: 0.682  (few errors -> very noisy)
+    NLI  AUROC separating right/wrong inside region: 0.647  (few errors -> very noisy)
+  [Policy vs thresholds, 500 bootstrap + 50/50 calibration/evaluation splits; thresholds fitted on calibration half]
+    Answer-all accuracy: 0.328
+    Fingerprint policy A: abstain only on Gap-like
+      coverage 0.650 | accuracy 0.379 [0.266, 0.516]
+      vs SC only            same coverage: acc 0.377 | fingerprint - baseline +0.002 [-0.036, +0.056]
+      vs SE only            same coverage: acc 0.379 | fingerprint - baseline +0.000 [-0.045, +0.044]
+      vs LogProb only       same coverage: acc 0.408 | fingerprint - baseline -0.029 [-0.103, +0.044]
+      vs Combined SC+SE+LP  same coverage: acc 0.384 | fingerprint - baseline -0.005 [-0.050, +0.045]
+      vs NLI only           same coverage: acc 0.393 | fingerprint - baseline -0.014 [-0.076, +0.047]
+      vs Combined +NLI      same coverage: acc 0.394 | fingerprint - baseline -0.015 [-0.071, +0.035]
+    Fingerprint policy B: auto-accept only Confident
+      coverage 0.453 | accuracy 0.435 [0.300, 0.601]
+      vs SC only            same coverage: acc 0.418 | fingerprint - baseline +0.017 [-0.048, +0.084]
+      vs SE only            same coverage: acc 0.438 | fingerprint - baseline -0.003 [-0.073, +0.046]
+      vs LogProb only       same coverage: acc 0.476 | fingerprint - baseline -0.042 [-0.134, +0.043]
+      vs Combined SC+SE+LP  same coverage: acc 0.442 | fingerprint - baseline -0.007 [-0.063, +0.049]
+      vs NLI only           same coverage: acc 0.451 | fingerprint - baseline -0.017 [-0.119, +0.075]
+      vs Combined +NLI      same coverage: acc 0.453 | fingerprint - baseline -0.018 [-0.101, +0.040]
+    (interval entirely above 0 = fingerprint policy clearly better than that threshold)
+========================================================================
+Mistral-7B | HotpotQA | n = 200 | accuracy = 0.355
+  [AUROC for detecting wrong answers, 95% bootstrap CI]
+    Avg(-logP)                 0.6977  [0.616, 0.775]
+    Self-Consistency           0.6802  [0.604, 0.753]
+    Semantic Entropy           0.7067  [0.632, 0.776]
+    SelfCheckGPT-NLI           0.6880  [0.606, 0.761]
+    Combined (SC+SE+LP)        0.7029  [0.628, 0.772]
+    Combined (SC+SE+LP+NLI)    0.7113  [0.634, 0.781]
+    paired diff Combined (SC+SE+LP) - SelfCheck-NLI: +0.0158 [-0.0356, +0.0639]   (CI containing 0 = no clear difference)
+    paired diff Combined (SC+SE+LP+NLI) - SelfCheck-NLI: +0.0237 [-0.0122, +0.0574]   (CI containing 0 = no clear difference)
+  [Regions: thresholds = medians, SC>0.650, SE>1.359; no labels used]
+    region                                  n      % errors  error rate [95% CI]
+    Confident (low SC, low SE)             94  47.0%     50  0.532 [0.432, 0.630]
+    Gap-like (high SC, high SE)            93  46.5%     72  0.774 [0.679, 0.847]
+    Shallow (low SC, high SE)               6   3.0%      3  0.500 [0.188, 0.812]
+    Surface-varying (high SC, low SE)       7   3.5%      4  0.571 [0.250, 0.842]
+    Silent errors (wrong inside Confident): 50 of 129 total errors (38.8%), = 25.0% of all questions
+    OLD policy (abstain on Gap-like AND wrong -> uses labels, NOT valid): acc 0.555, coverage 0.640
+    NEW label-free policy (abstain on Gap-like): acc 0.467, coverage 0.535
+  [Interaction SC x SE: likelihood-ratio stat 2.047, p = 0.153  (p>0.05: the 2-D pattern adds nothing beyond SC and SE separately)]
+  [Inside Confident region: n=94, errors=50]
+    LP   AUROC separating right/wrong inside region: 0.725  (few errors -> very noisy)
+    NLI  AUROC separating right/wrong inside region: 0.666  (few errors -> very noisy)
+  [Policy vs thresholds, 500 bootstrap + 50/50 calibration/evaluation splits; thresholds fitted on calibration half]
+    Answer-all accuracy: 0.356
+    Fingerprint policy A: abstain only on Gap-like
+      coverage 0.569 | accuracy 0.458 [0.333, 0.583]
+      vs SC only            same coverage: acc 0.458 | fingerprint - baseline +0.001 [-0.034, +0.041]
+      vs SE only            same coverage: acc 0.449 | fingerprint - baseline +0.009 [-0.024, +0.046]
+      vs LogProb only       same coverage: acc 0.452 | fingerprint - baseline +0.007 [-0.083, +0.087]
+      vs Combined SC+SE+LP  same coverage: acc 0.453 | fingerprint - baseline +0.005 [-0.047, +0.056]
+      vs NLI only           same coverage: acc 0.442 | fingerprint - baseline +0.016 [-0.063, +0.091]
+      vs Combined +NLI      same coverage: acc 0.451 | fingerprint - baseline +0.008 [-0.052, +0.062]
+    Fingerprint policy B: auto-accept only Confident
+      coverage 0.474 | accuracy 0.471 [0.330, 0.612]
+      vs SC only            same coverage: acc 0.459 | fingerprint - baseline +0.013 [-0.037, +0.072]
+      vs SE only            same coverage: acc 0.475 | fingerprint - baseline -0.004 [-0.057, +0.052]
+      vs LogProb only       same coverage: acc 0.500 | fingerprint - baseline -0.029 [-0.171, +0.077]
+      vs Combined SC+SE+LP  same coverage: acc 0.482 | fingerprint - baseline -0.011 [-0.067, +0.055]
+      vs NLI only           same coverage: acc 0.473 | fingerprint - baseline -0.002 [-0.115, +0.097]
+      vs Combined +NLI      same coverage: acc 0.483 | fingerprint - baseline -0.012 [-0.083, +0.054]
+    (interval entirely above 0 = fingerprint policy clearly better than that threshold)
+========================================================================
+SILENT ERRORS ACROSS MODEL SIZE (wrong answers in Confident region)
+  Mistral-7B | TriviaQA      6/200 =  3.0% of questions [1.4, 6.4]
+  Qwen2-7B | TriviaQA       17/200 =  8.5% of questions [5.4, 13.2]
+  Qwen2-1.5B | TriviaQA     36/200 = 18.0% of questions [13.3, 23.9]
+
+Done. Files are in the folder: analysis_out

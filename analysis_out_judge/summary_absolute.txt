@@ -1,0 +1,84 @@
+========================================================================
+Mistral-7B | TriviaQA | n=200 | accuracy=0.730 | total errors=54
+  Spearman correlation between SC and SE: 0.905 (close to 1 = the two signals are largely redundant)
+  [strict: all 10 samples agree (SC=0, SE=0)]
+    questions in region: 74 (37.0%)
+    wrong inside region: 4  -> error rate 0.054 [0.021, 0.131]
+    silent errors = 2.0% of all questions [0.8, 5.0] ; 7.4% of all errors
+    LP  AUROC: too few errors (4) to evaluate
+    NLI AUROC: too few errors (4) to evaluate
+  [high agreement: >=9/10 samples agree (SC<=0.1)]
+    questions in region: 90 (45.0%)
+    wrong inside region: 6  -> error rate 0.067 [0.031, 0.138]
+    silent errors = 3.0% of all questions [1.4, 6.4] ; 11.1% of all errors
+    LP  AUROC for right/wrong inside region: 0.742 (n_errors=6)
+    NLI AUROC for right/wrong inside region: 0.452 (n_errors=6)
+========================================================================
+Qwen2-7B | TriviaQA | n=200 | accuracy=0.590 | total errors=82
+  Spearman correlation between SC and SE: 0.933 (close to 1 = the two signals are largely redundant)
+  [strict: all 10 samples agree (SC=0, SE=0)]
+    questions in region: 86 (43.0%)
+    wrong inside region: 16  -> error rate 0.186 [0.118, 0.281]
+    silent errors = 8.0% of all questions [5.0, 12.6] ; 19.5% of all errors
+    LP  AUROC for right/wrong inside region: 0.589 (n_errors=16)
+    NLI AUROC for right/wrong inside region: 0.512 (n_errors=16)
+  [high agreement: >=9/10 samples agree (SC<=0.1)]
+    questions in region: 100 (50.0%)
+    wrong inside region: 21  -> error rate 0.210 [0.142, 0.300]
+    silent errors = 10.5% of all questions [7.0, 15.5] ; 25.6% of all errors
+    LP  AUROC for right/wrong inside region: 0.606 (n_errors=21)
+    NLI AUROC for right/wrong inside region: 0.584 (n_errors=21)
+========================================================================
+Qwen2-1.5B | TriviaQA | n=200 | accuracy=0.385 | total errors=123
+  Spearman correlation between SC and SE: 0.904 (close to 1 = the two signals are largely redundant)
+  [strict: all 10 samples agree (SC=0, SE=0)]
+    questions in region: 8 (4.0%)
+    wrong inside region: 0  -> error rate 0.000 [0.000, 0.324]
+    silent errors = 0.0% of all questions [0.0, 1.9] ; 0.0% of all errors
+    LP  AUROC: too few errors (0) to evaluate
+    NLI AUROC: too few errors (0) to evaluate
+  [high agreement: >=9/10 samples agree (SC<=0.1)]
+    questions in region: 9 (4.5%)
+    wrong inside region: 0  -> error rate 0.000 [0.000, 0.299]
+    silent errors = 0.0% of all questions [0.0, 1.9] ; 0.0% of all errors
+    LP  AUROC: too few errors (0) to evaluate
+    NLI AUROC: too few errors (0) to evaluate
+========================================================================
+Mistral-7B | NaturalQA | n=200 | accuracy=0.360 | total errors=128
+  Spearman correlation between SC and SE: 0.856 (close to 1 = the two signals are largely redundant)
+  [strict: all 10 samples agree (SC=0, SE=0)]
+    questions in region: 14 (7.0%)
+    wrong inside region: 4  -> error rate 0.286 [0.117, 0.546]
+    silent errors = 2.0% of all questions [0.8, 5.0] ; 3.1% of all errors
+    LP  AUROC: too few errors (4) to evaluate
+    NLI AUROC: too few errors (4) to evaluate
+  [high agreement: >=9/10 samples agree (SC<=0.1)]
+    questions in region: 22 (11.0%)
+    wrong inside region: 7  -> error rate 0.318 [0.164, 0.527]
+    silent errors = 3.5% of all questions [1.7, 7.0] ; 5.5% of all errors
+    LP  AUROC for right/wrong inside region: 0.743 (n_errors=7)
+    NLI AUROC for right/wrong inside region: 0.571 (n_errors=7)
+========================================================================
+Mistral-7B | HotpotQA | n=200 | accuracy=0.375 | total errors=125
+  Spearman correlation between SC and SE: 0.925 (close to 1 = the two signals are largely redundant)
+  [strict: all 10 samples agree (SC=0, SE=0)]
+    questions in region: 23 (11.5%)
+    wrong inside region: 4  -> error rate 0.174 [0.070, 0.371]
+    silent errors = 2.0% of all questions [0.8, 5.0] ; 3.2% of all errors
+    LP  AUROC: too few errors (4) to evaluate
+    NLI AUROC: too few errors (4) to evaluate
+  [high agreement: >=9/10 samples agree (SC<=0.1)]
+    questions in region: 32 (16.0%)
+    wrong inside region: 8  -> error rate 0.250 [0.133, 0.421]
+    silent errors = 4.0% of all questions [2.0, 7.7] ; 6.4% of all errors
+    LP  AUROC for right/wrong inside region: 0.688 (n_errors=8)
+    NLI AUROC for right/wrong inside region: 0.552 (n_errors=8)
+========================================================================
+STRICT SILENT ERRORS (all 10 samples agree, answer wrong)
+  Mistral-7B | TriviaQA      4/200 =  2.0% of questions [0.8, 5.0]   (region size 74)
+  Qwen2-7B | TriviaQA       16/200 =  8.0% of questions [5.0, 12.6]   (region size 86)
+  Qwen2-1.5B | TriviaQA      0/200 =  0.0% of questions [0.0, 1.9]   (region size 8)
+  Mistral-7B | NaturalQA     4/200 =  2.0% of questions [0.8, 5.0]   (region size 14)
+  Mistral-7B | HotpotQA      4/200 =  2.0% of questions [0.8, 5.0]   (region size 23)
+
+Done. File: analysis_out_judge\summary_absolute.txt

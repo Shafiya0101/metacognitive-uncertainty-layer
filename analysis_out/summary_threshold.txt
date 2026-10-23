@@ -1,0 +1,47 @@
+==============================================================================
+Mistral-7B | TriviaQA | n=200 | accuracy=0.765
+  Gap-like abstention at different percentile cut-offs; difference = policy - baseline at same coverage
+  p30: coverage 0.45 acc 0.909 | SC only -0.021[-0.079,+0.020] | SE only +0.000[+0.000,+0.000] | Comb SC+SE+LP -0.023[-0.077,+0.000] | NLI only -0.007[-0.047,+0.026]
+  p40: coverage 0.49 acc 0.913 | SC only -0.008[-0.058,+0.039] | SE only -0.001[-0.020,+0.008] | Comb SC+SE+LP -0.017[-0.068,+0.022] | NLI only -0.006[-0.056,+0.038]
+  p50: coverage 0.58 acc 0.898 | SC only +0.004[-0.036,+0.052] | SE only -0.007[-0.051,+0.032] | Comb SC+SE+LP -0.008[-0.051,+0.033] | NLI only -0.021[-0.085,+0.034]
+  p60: coverage 0.70 acc 0.868 | SC only -0.001[-0.036,+0.032] | SE only -0.014[-0.051,+0.015] | Comb SC+SE+LP -0.005[-0.047,+0.034] | NLI only -0.030[-0.083,+0.017]
+  p70: coverage 0.78 acc 0.853 | SC only +0.001[-0.026,+0.026] | SE only -0.001[-0.029,+0.027] | Comb SC+SE+LP +0.004[-0.025,+0.027] | NLI only -0.015[-0.071,+0.029]
+==============================================================================
+Qwen2-7B | TriviaQA | n=200 | accuracy=0.610
+  Gap-like abstention at different percentile cut-offs; difference = policy - baseline at same coverage
+  p30: coverage 0.49 acc 0.855 | SC only +0.021[-0.036,+0.085] | SE only +0.000[+0.000,+0.000] | Comb SC+SE+LP +0.007[-0.038,+0.061] | NLI only -0.002[-0.039,+0.040]
+  p40: coverage 0.51 acc 0.846 | SC only +0.017[-0.034,+0.077] | SE only -0.001[-0.018,+0.000] | Comb SC+SE+LP +0.003[-0.037,+0.057] | NLI only -0.007[-0.055,+0.034]
+  p50: coverage 0.58 acc 0.806 | SC only +0.005[-0.032,+0.043] | SE only +0.000[-0.031,+0.035] | Comb SC+SE+LP -0.006[-0.045,+0.030] | NLI only -0.018[-0.068,+0.028]
+  p60: coverage 0.68 acc 0.764 | SC only -0.000[-0.032,+0.037] | SE only +0.002[-0.029,+0.037] | Comb SC+SE+LP -0.008[-0.044,+0.017] | NLI only -0.004[-0.048,+0.040]
+  p70: coverage 0.77 acc 0.726 | SC only -0.002[-0.025,+0.020] | SE only +0.002[-0.026,+0.034] | Comb SC+SE+LP -0.005[-0.027,+0.015] | NLI only +0.002[-0.029,+0.040]
+==============================================================================
+Qwen2-1.5B | TriviaQA | n=200 | accuracy=0.425
+  Gap-like abstention at different percentile cut-offs; difference = policy - baseline at same coverage
+  p30: coverage 0.38 acc 0.669 | SC only +0.028[-0.022,+0.092] | SE only -0.020[-0.097,+0.032] | Comb SC+SE+LP -0.010[-0.081,+0.062] | NLI only -0.043[-0.164,+0.093]
+  p40: coverage 0.51 acc 0.587 | SC only +0.015[-0.024,+0.071] | SE only -0.009[-0.067,+0.055] | Comb SC+SE+LP -0.017[-0.081,+0.038] | NLI only -0.057[-0.157,+0.041]
+  p50: coverage 0.65 acc 0.522 | SC only +0.009[-0.026,+0.070] | SE only -0.001[-0.047,+0.051] | Comb SC+SE+LP -0.007[-0.057,+0.037] | NLI only -0.050[-0.120,+0.015]
+  p60: coverage 0.78 acc 0.468 | SC only -0.003[-0.024,+0.017] | SE only -0.008[-0.043,+0.026] | Comb SC+SE+LP -0.002[-0.045,+0.036] | NLI only -0.039[-0.087,+0.012]
+  p70: coverage 0.82 acc 0.460 | SC only -0.001[-0.025,+0.025] | SE only -0.005[-0.036,+0.020] | Comb SC+SE+LP +0.001[-0.035,+0.039] | NLI only -0.031[-0.081,+0.011]
+==============================================================================
+Mistral-7B | NaturalQA | n=200 | accuracy=0.330
+  Gap-like abstention at different percentile cut-offs; difference = policy - baseline at same coverage
+  p30: coverage 0.39 acc 0.450 | SC only +0.019[-0.046,+0.100] | SE only -0.013[-0.095,+0.063] | Comb SC+SE+LP -0.008[-0.062,+0.066] | NLI only -0.018[-0.128,+0.110]
+  p40: coverage 0.50 acc 0.423 | SC only +0.018[-0.037,+0.074] | SE only +0.006[-0.060,+0.062] | Comb SC+SE+LP +0.001[-0.051,+0.043] | NLI only -0.009[-0.101,+0.074]
+  p50: coverage 0.65 acc 0.378 | SC only +0.003[-0.034,+0.055] | SE only -0.001[-0.053,+0.045] | Comb SC+SE+LP -0.005[-0.063,+0.045] | NLI only -0.016[-0.087,+0.058]
+  p60: coverage 0.78 acc 0.353 | SC only -0.003[-0.040,+0.033] | SE only -0.002[-0.046,+0.033] | Comb SC+SE+LP -0.011[-0.058,+0.027] | NLI only -0.014[-0.079,+0.037]
+  p70: coverage 0.98 acc 0.331 | SC only -0.001[-0.014,+0.000] | SE only -0.000[-0.013,+0.000] | Comb SC+SE+LP -0.002[-0.039,+0.000] | NLI only -0.001[-0.029,+0.000]
+==============================================================================
+Mistral-7B | HotpotQA | n=200 | accuracy=0.355
+  Gap-like abstention at different percentile cut-offs; difference = policy - baseline at same coverage
+  p30: coverage 0.37 acc 0.496 | SC only +0.034[-0.037,+0.120] | SE only -0.011[-0.078,+0.041] | Comb SC+SE+LP -0.010[-0.093,+0.071] | NLI only -0.043[-0.149,+0.068]
+  p40: coverage 0.47 acc 0.472 | SC only +0.010[-0.032,+0.073] | SE only -0.007[-0.072,+0.052] | Comb SC+SE+LP -0.015[-0.098,+0.043] | NLI only -0.011[-0.119,+0.096]
+  p50: coverage 0.57 acc 0.463 | SC only +0.002[-0.033,+0.039] | SE only +0.010[-0.027,+0.050] | Comb SC+SE+LP +0.009[-0.040,+0.057] | NLI only +0.015[-0.060,+0.094]
+  p60: coverage 0.70 acc 0.423 | SC only -0.003[-0.029,+0.026] | SE only -0.006[-0.043,+0.035] | Comb SC+SE+LP +0.001[-0.040,+0.038] | NLI only +0.001[-0.056,+0.065]
+  p70: coverage 0.83 acc 0.397 | SC only +0.005[-0.021,+0.038] | SE only -0.008[-0.051,+0.021] | Comb SC+SE+LP +0.001[-0.038,+0.028] | NLI only +0.002[-0.046,+0.042]
+==============================================================================
+Across all sources, cut-offs and baselines: 100 comparisons
+  interval entirely above 0 (policy better): 0
+  interval entirely below 0 (policy worse):  0
+  interval includes 0 (no clear difference): 100
+
+Done. File: analysis_out\summary_threshold.txt

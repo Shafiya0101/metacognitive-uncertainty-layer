@@ -1,0 +1,116 @@
+18 disagreements out of 226 rows
+
+----------------------------------------------------------------------
+CASE 1: Mistral-7B | TriviaQA | idx 5 | silent_error | original=wrong, judge=CORRECT
+  Q:     Quitline is a system of centres to help people to quit what?
+  Gold:  Tobacco or alcohol
+  Model: Quitline is a system of centers to help people quit smoking.
+  Judge said: CORRECT
+----------------------------------------------------------------------
+CASE 2: Mistral-7B | TriviaQA | idx 111 | random | original=correct, judge=NOT correct
+  Q:     Which Scottish newspaper features the Broons and Oor Wullie?
+  Gold:  Sunday Post | The Sunday Post
+  Model: The Daily Beast (Dundee's Sunday Post) and The Beano (comic) feature The Broons and Oor Wullie. The Sunday Post's Dandy section includes the comic strips.
+  Judge said: AMBIGUOUS
+----------------------------------------------------------------------
+CASE 3: Mistral-7B | TriviaQA | idx 1 | random | original=correct, judge=NOT correct
+  Q:     Which US gangster was released from Alcatraz prison in November 1939?
+  Gold:  Alfonse %22Scarface%22 Capone | CaPone | Alphonse Gabriel %22Al%22 Capone | Mae Capone | Alphonse G Capone | Al Capone | Capone | Alphonse Gabriel Capone
+  Model: Al Capone, not a gangster, was released from Alcatraz in January 1939. The gangster who was released in November 1939 was George "Machine Gun Kelly."
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 4: Qwen2-7B | TriviaQA | idx 103 | random | original=wrong, judge=CORRECT
+  Q:     According to Colossians, Ch 4 v 14, what profession was followed by St Luke?
+  Gold:  The Physician | Medicus (novel) | A PHYSICIAN
+  Model: St Luke followed the profession of a doctor.
+  Judge said: CORRECT
+----------------------------------------------------------------------
+CASE 5: Qwen2-7B | TriviaQA | idx 99 | random | original=correct, judge=NOT correct
+  Q:     Hircine refers to being like or related to what creature?
+  Gold:  Nanny goat | Dairy goat | Kid (goat) | Nanny Goat | Capra aegagrus hircus | She goat | Billy Goat | Goat
+  Model: Hircine refers to being like or related to a wild boar or a goat.
+  Judge said: AMBIGUOUS
+----------------------------------------------------------------------
+CASE 6: Qwen2-1.5B | TriviaQA | idx 83 | random | original=correct, judge=NOT correct
+  Q:     Which singer's real name is Elaine Bookbinder?
+  Gold:  ELKIE BROOKS | We've Got Tonight (Castle) | We've Got Tonight - Spectrum | No More the Fool (2003 album) | No More The Fool - Compilation | Songs of Love (Elkie Brooks album) | We've Got Tonight (Spec
+  Model: Elaine Benzel is the singer whose real name is Elaine Bookbinder.
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 7: Qwen2-1.5B | TriviaQA | idx 145 | random | original=correct, judge=NOT correct
+  Q:     What is the distinguishing feature of an animal described as ‘palmiped’?
+  Gold:  Totipalmation | Webbed feet | Webbed foot | Palmiped | Webbed toes | Web foot
+  Model: The distinguishing feature of an animal described as 'palmiped' is that it has hands or digits on its front feet.
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 8: Qwen2-1.5B | TriviaQA | idx 166 | random | original=correct, judge=NOT correct
+  Q:     Which spirit is the base of the cocktails Planter’s Punch and Sundowner?
+  Gold:  Spiced Rum | Spiced rum | Rum | Gunpowder Rum | Rum (beverage) | White rum | Jamaica Spirits | Caña blanca
+  Model: Planter's Punch uses rum as its base, while Sundowner typically uses gin.
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 9: Mistral-7B | NaturalQA | idx 162 | random | original=correct, judge=NOT correct
+  Q:     tools made from high-speed tool steel are generally used for what type of machining operations
+  Gold:  milling
+  Model: High-speed tool steel is typically used for high-speed machining operations, such as milling, drilling, and turning, where high temperatures and wear are encountered.
+  Judge said: AMBIGUOUS
+----------------------------------------------------------------------
+CASE 10: Mistral-7B | NaturalQA | idx 120 | random | original=correct, judge=NOT correct
+  Q:     who wrote and performed i can only imagine
+  Gold:  Bart Millard | Christian rock band MercyMe | MercyMe
+  Model: Brian Wilson (of The Beach Boys) wrote "I Can Only Imagine," but the version most people are familiar with was performed by MercyMe. However, the original version was performed by Bart Millard and his band, MercyMe, on
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 11: Mistral-7B | NaturalQA | idx 2 | random | original=correct, judge=NOT correct
+  Q:     who has the most catches in nfl history
+  Gold:  Jerry Rice
+  Model: Jon Gruden (not an NFL player, but as a coach, he has the most interceptions thrown against him in NFL history)
+
+However, for the most catches in NFL history, Jerry Rice is the leader with 1,5
+  Judge said: AMBIGUOUS
+----------------------------------------------------------------------
+CASE 12: Mistral-7B | NaturalQA | idx 138 | random | original=wrong, judge=CORRECT
+  Q:     what football player is called the honey badger
+  Gold:  Tyrann Devine Mathieu
+  Model: Tyrann Mathieu (American football player) is often referred to as the "Honey Badger." He earned this nickname due to his tenacious playing style and fearless attitude, similar to the real honey badger animal.
+  Judge said: CORRECT
+----------------------------------------------------------------------
+CASE 13: Mistral-7B | HotpotQA | idx 63 | silent_error | original=wrong, judge=CORRECT
+  Q:     Which late 1980s and 1990s English super model was featured in the song nasty girl by The Notorious B.I.G.?
+  Gold:  Naomi Elaine Campbell
+  Model: Naomi Campbell
+  Judge said: CORRECT
+----------------------------------------------------------------------
+CASE 14: Mistral-7B | HotpotQA | idx 82 | random | original=correct, judge=NOT correct
+  Q:     Who conducted the negotiations  with the owners and the longest serving commandant of Auschwitz concentration and extermination camp?
+  Gold:  Rudolf Höss
+  Model: The negotiations were conducted by the Polish government and the Polish Red Cross, not an individual. The commandant of Auschwitz during the time of the negotiations was Rudolf Höss, but he was not a party to the negotiations.
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 15: Mistral-7B | HotpotQA | idx 176 | random | original=correct, judge=NOT correct
+  Q:     Which film was not a 3D computer-animation Cars 3 or Smith!?
+  Gold:  Smith!
+  Model: Smith is not a film. It's a name. The films are Cars 3 and various other films.
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 16: Mistral-7B | HotpotQA | idx 173 | random | original=correct, judge=NOT correct
+  Q:     What is the brand who makes canned meats that had its own cook off in Austin until 2007?
+  Gold:  Hormel Foods Corporation
+  Model: H-E-B (Hormel Foods Corporation previously hosted the Hormel Chili Cook-Off in Austin, Texas until 2007.)
+  Judge said: INCORRECT
+----------------------------------------------------------------------
+CASE 17: Mistral-7B | HotpotQA | idx 125 | random | original=wrong, judge=CORRECT
+  Q:     The Nike Mercurial Vapor is endorsed by a Stoke City football player who also plays for what national team?
+  Gold:  the Switzerland national team
+  Model: Xherdan Shaqiri (Switzerland)
+  Judge said: CORRECT
+----------------------------------------------------------------------
+CASE 18: Mistral-7B | HotpotQA | idx 56 | random | original=wrong, judge=CORRECT
+  Q:     What Cantonese slang term can mean both "ghost man" and to refer to Westerners?
+  Gold:  Gweilo
+  Model: "Gwai Lo" (外廢) can refer to Westerners and can also be colloquially used to mean "ghost man" in Cantonese.
+  Judge said: CORRECT
+
+======================================================================
+original=wrong, judge=CORRECT: 6
+original=correct, judge=NOT correct: 12
