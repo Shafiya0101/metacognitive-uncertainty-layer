@@ -105,6 +105,19 @@ Re-generating the raw results takes hours on a GPU (`run_pipeline.py`,
 | `results*/` | Saved results and plots |
 | `analysis_out/`, `analysis_out_judge/` | Current analysis outputs |
 
+## Background
+This workshop builds on the final-year thesis:
+Kausar, S. (2026). *Intuition in AI Systems and Reducing Hallucination: Metacognitive Uncertainty
+Estimation for Hallucination Detection in Large Language Models.* aivancity Paris, supervised by
+Prof. Y. Khalafaoui. DOI: [10.13140/RG.2.2.11958.66884](https://doi.org/10.13140/RG.2.2.11958.66884)
+(preprint, CC BY 4.0). Research code: https://github.com/Shafiya0101/metacognitive-uncertainty-layer
+
+**Note on results.** The thesis reports a fingerprint policy reaching 93.87% accuracy at 81.5%
+coverage. That policy defines "knowledge gap" using correctness labels, so it cannot run in a real
+system. A follow-up study with label-free fingerprints and matched-coverage comparisons finds
+91.2% accuracy at 56.5% coverage, and plain thresholds do as well. The workshop teaches the
+stricter evaluation.
+
 ## Limitations
 
 200 questions per setting, so intervals are wide; three models in 4-bit
